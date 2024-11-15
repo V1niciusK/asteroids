@@ -4,14 +4,21 @@
 import pygame
 
 from constants import *
+from player import Player
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
     black = pygame.Color(0,0,0)
+    
     # Frame rate control
     clock = pygame.time.Clock()
     dt = 0
+
+    # Player
+    player_x = SCREEN_WIDTH / 2
+    player_y = SCREEN_HEIGHT / 2
+    player = Player(player_x, player_y)
 
     # Main Loop
 
@@ -21,10 +28,12 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
-        
-        # Updates window
-        screen.fill(black)
-        pygame.display.flip()
+        # Updates window ORDER MATTERS, from back to front:
+        screen.fill("black")
+
+        player.draw(screen)
+
+        pygame.display.flip() # Updates/draws the finished frame
 
         # Controls Framerate and recalculates frame delta
         dt = clock.tick(60) / 1000
