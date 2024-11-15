@@ -10,7 +10,13 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
     black = pygame.Color(0,0,0)
+
+    # Organizational
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
     
+    Player.containers = (updatable, drawable)
+
     # Frame rate control
     clock = pygame.time.Clock()
     dt = 0
@@ -21,30 +27,25 @@ def main():
     player = Player(player_x, player_y)
 
     # Main Loop
-
     while True:
         # Makes close window work
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         
-        player.update(dt)
+        for item in updatable:
+            item.update(dt)
 
         # Updates window ORDER MATTERS, from back to front:
         screen.fill("black")
 
-        player.draw(screen)
+        for item in drawable:
+            item.draw(screen)
 
         pygame.display.flip() # Updates/draws the finished frame
 
         # Controls Framerate and recalculates frame delta
         dt = clock.tick(60) / 1000
-
-    """
-    print("Starting asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
-    """
 
 
 if __name__ == "__main__":
