@@ -1,6 +1,6 @@
 # Build an Asteroids Game
 
-I have built a simple video game, based on the classic (Asteroids)[https://en.wikipedia.org/wiki/Asteroids_(video_game)]. If you've never played before, you can take a look at this (slightly different from our) (version of the game)[https://freeasteroids.org/].
+I have built a simple video game, based on the classic [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game)). If you've never played before, you can take a look at this (slightly different from our) [version of the game](https://freeasteroids.org/).
 
 ### The finished project:
 ![image](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/YmSwzVB.gif)
