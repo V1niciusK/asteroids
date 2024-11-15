@@ -28,6 +28,8 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
+        player.update(dt)
+
         # Updates window ORDER MATTERS, from back to front:
         screen.fill("black")
 
