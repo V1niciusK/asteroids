@@ -43,6 +43,11 @@ def main():
         
         for item in updatable:
             item.update(dt)
+        
+        for asteroid in asteroids:
+            if asteroid.has_collided(player):
+                print("Game Over")
+                return
 
         # Updates window ORDER MATTERS, from back to front:
         screen.fill("black")
